@@ -1,0 +1,43 @@
+{
+	"name": "craue/translations-tests",
+	"type": "library",
+	"description": "Common code for testing translations in your Symfony project.",
+	"keywords": ["symfony", "testing", "translations"],
+	"homepage": "https://github.com/craue/CraueTranslationsTests",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Christian Raue",
+			"email": "christian.raue@gmail.com"
+		},
+		{
+			"name": "Symfony Community",
+			"homepage": "https://github.com/craue/CraueTranslationsTests/contributors"
+		}
+	],
+	"require": {
+		"php": "~7.0",
+		"phpunit/phpunit": "^6.5|^7.5|^8.0|^9.0",
+		"symfony/translation": "^3.4|^4.3|^5.0",
+		"symfony/yaml": "^3.4|^4.3|^5.0"
+	},
+	"minimum-stability": "stable",
+	"autoload": {
+		"psr-4": {
+			"Craue\\TranslationsTests\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Craue\\TranslationsTests\\": "tests/"
+		}
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "1.0.x-dev"
+		}
+	},
+	"config": {
+		"sort-packages": true
+	}
+}

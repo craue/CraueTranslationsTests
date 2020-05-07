@@ -1,0 +1,36 @@
+language: php
+
+jobs:
+  include:
+    - php: 7.0
+      env: DEPS='lowest'
+    - php: 7.4
+      env: DEPS='unmodified' WITH_STATIC_ANALYSIS='yes'
+
+install:
+  # set unlimited memory_limit
+  - INI_FILE=~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+  - echo "memory_limit = -1" >> "${INI_FILE}"
+  # disable Xdebug for better Composer performance
+  - if php -v | grep -q 'Xdebug'; then phpenv config-rm xdebug.ini; fi;
+  # install dependencies using Composer
+  - bash .travis_install_dependencies.sh
+  # show installed dependencies
+  - composer show
+
+script:
+  # validate composer.json
+  - if [ -n "${WITH_STATIC_ANALYSIS:-}" ]; then composer validate --strict --no-check-lock; fi;
+  # run PHPUnit
+  - vendor/bin/phpunit -v
+
+notifications:
+  email:
+    on_success: always
+    on_failure: always
+
+# cache Composer's package cache
+cache:
+  directories:
+    - $HOME/.composer/cache/files
+    - vendor
