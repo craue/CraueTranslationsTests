@@ -41,12 +41,7 @@ abstract class YamlTranslationsTest extends TestCase {
 		if ($this->defaultLocale === null) {
 			$defaultLocale = $this->defineDefaultLocale();
 
-			// TODO just use assertIsString as soon as PHPUnit >= 7.5 is required
-			if (\method_exists($this, 'assertIsString')) {
-				$this->assertIsString($defaultLocale, 'You need to define the default locale as a string.');
-			} else {
-				$this->assertInternalType('string', $defaultLocale, 'You need to define the default locale as a string.');
-			}
+			$this->assertIsString($defaultLocale, 'You need to define the default locale as a string.');
 
 			$this->defaultLocale = $defaultLocale;
 		}
@@ -61,12 +56,7 @@ abstract class YamlTranslationsTest extends TestCase {
 		if ($this->translationFiles === null) {
 			$translationFiles = $this->defineTranslationFiles();
 
-			// TODO just use assertIsArray as soon as PHPUnit >= 7.5 is required
-			if (\method_exists($this, 'assertIsArray')) {
-				$this->assertIsArray($translationFiles, 'You need to define the translation files to be tested as an array of file names.');
-			} else {
-				$this->assertInternalType('array', $translationFiles, 'You need to define the translation files to be tested as an array of file names.');
-			}
+			$this->assertIsArray($translationFiles, 'You need to define the translation files to be tested as an array of file names.');
 
 			$this->translationFiles = $translationFiles;
 		}

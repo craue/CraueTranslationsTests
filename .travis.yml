@@ -2,9 +2,9 @@ language: php
 
 jobs:
   include:
-    - php: 7.0
+    - php: 7.3
       env: DEPS='lowest'
-    - php: 7.4
+    - php: 8.0
       env: DEPS='unmodified' WITH_STATIC_ANALYSIS='yes'
 
 install:
