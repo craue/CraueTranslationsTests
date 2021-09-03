@@ -1,6 +1,6 @@
 # Information
 
-[![Build Status](https://travis-ci.org/craue/CraueTranslationsTests.svg?branch=master)](https://travis-ci.org/craue/CraueTranslationsTests)
+[![Build Status](https://app.travis-ci.com/craue/CraueTranslationsTests.svg?branch=master)](https://app.travis-ci.com/craue/CraueTranslationsTests)
 
 This repository contains just some common code for testing translations in your Symfony project.
 
