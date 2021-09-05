@@ -34,4 +34,3 @@ notifications:
 cache:
   directories:
     - $HOME/.composer/cache/files
-    - vendor
