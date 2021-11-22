@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0] – 2021-11-22
+
+- added support for Symfony 6
+- dropped support for Symfony 3.4
+
+[1.2.0]: https://github.com/craue/CraueTranslationsTests/compare/1.1.0...1.2.0
+
 ## [1.1.0] – 2020-12-09
 
 - added support for PHP 8.0
