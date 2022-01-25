@@ -22,6 +22,8 @@ install:
 script:
   # validate composer.json
   - if [ -n "${WITH_STATIC_ANALYSIS:-}" ]; then composer validate --strict --no-check-lock; fi;
+  # run PHPStan
+  - if [ -n "${WITH_STATIC_ANALYSIS:-}" ]; then vendor/bin/phpstan analyse; fi;
   # run PHPUnit
   - vendor/bin/phpunit -v
 

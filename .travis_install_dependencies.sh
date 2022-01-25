@@ -14,4 +14,8 @@ case "${DEPS:-}" in
 		;;
 esac
 
+if [ -n "${WITH_STATIC_ANALYSIS:-}" ]; then
+	composer require --no-update --dev phpstan/phpstan
+fi
+
 composer update ${COMPOSER_UPDATE_ARGS:-}
