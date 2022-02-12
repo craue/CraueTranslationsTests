@@ -12,18 +12,18 @@ use PHPUnit\Framework\SkippedTestError;
  */
 class YamlTranslationsTestFilesEmptyArrayTest extends YamlTranslationsTest {
 
-	protected function defineTranslationFiles() {
+	protected function defineTranslationFiles() : array {
 		return [];
 	}
 
-	public function testTranslationFilesExist() {
+	public function testTranslationFilesExist() : void {
 		$this->expectException(AssertionFailedError::class);
 		$this->expectExceptionMessage('No translation files found.');
 
 		parent::testTranslationFilesExist();
 	}
 
-	public function testYamlTranslationFilesContainNoUnknownKeys() {
+	public function testYamlTranslationFilesContainNoUnknownKeys() : void {
 		$this->expectException(SkippedTestError::class);
 		$this->expectExceptionMessage('No translation files found.');
 

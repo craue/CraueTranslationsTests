@@ -11,11 +11,11 @@ use PHPUnit\Framework\AssertionFailedError;
  */
 class YamlTranslationsTestMissingDefaultLocaleTest extends YamlTranslationsTest {
 
-	protected function defineTranslationFiles() {
+	protected function defineTranslationFiles() : array {
 		return glob(__DIR__ . '/Resources/translations/not-ok/missing-default-locale/*.yml');
 	}
 
-	public function testYamlTranslationFilesContainNoUnknownKeys() {
+	public function testYamlTranslationFilesContainNoUnknownKeys() : void {
 		$this->expectException(AssertionFailedError::class);
 		$this->expectExceptionMessage('Domain "messages" has no translation file for the default locale "en".');
 

@@ -13,12 +13,12 @@ use Symfony\Component\Translation\Loader\YamlFileLoader;
 abstract class YamlTranslationsTest extends TestCase {
 
 	/**
-	 * @var string
+	 * @var string|null
 	 */
 	private $defaultLocale = null;
 
 	/**
-	 * @var string[]
+	 * @var string[]|null
 	 */
 	private $translationFiles = null;
 
@@ -34,16 +34,9 @@ abstract class YamlTranslationsTest extends TestCase {
 	 */
 	abstract protected function defineTranslationFiles();
 
-	/**
-	 * @return string
-	 */
-	protected final function getDefaultLocale() {
+	protected final function getDefaultLocale() : string {
 		if ($this->defaultLocale === null) {
-			$defaultLocale = $this->defineDefaultLocale();
-
-			$this->assertIsString($defaultLocale, 'You need to define the default locale as a string.');
-
-			$this->defaultLocale = $defaultLocale;
+			$this->defaultLocale = $this->defineDefaultLocale();
 		}
 
 		return $this->defaultLocale;
@@ -52,11 +45,11 @@ abstract class YamlTranslationsTest extends TestCase {
 	/**
 	 * @return string[]
 	 */
-	protected final function getTranslationFiles() {
+	protected final function getTranslationFiles() : array {
 		if ($this->translationFiles === null) {
 			$translationFiles = $this->defineTranslationFiles();
 
-			$this->assertIsArray($translationFiles, 'You need to define the translation files to be tested as an array of file names.');
+			self::assertContainsOnly('string', $translationFiles, true, 'You need to define the translation files to be tested as an array of file names.');
 
 			$this->translationFiles = $translationFiles;
 		}
@@ -64,11 +57,11 @@ abstract class YamlTranslationsTest extends TestCase {
 		return $this->translationFiles;
 	}
 
-	public function testTranslationFilesExist() {
-		$this->assertNotEmpty($this->getTranslationFiles(), 'No translation files found.');
+	public function testTranslationFilesExist() : void {
+		self::assertNotEmpty($this->getTranslationFiles(), 'No translation files found.');
 
 		foreach ($this->getTranslationFiles() as $file) {
-			$this->assertFileExists($file);
+			self::assertFileExists($file);
 		}
 	}
 
@@ -79,11 +72,11 @@ abstract class YamlTranslationsTest extends TestCase {
 	 * added and the translations will be completed later.
 	 * But it's not ok for a translation file to contain keys that are not available in the default translation.
 	 */
-	public function testYamlTranslationFilesContainNoUnknownKeys() {
+	public function testYamlTranslationFilesContainNoUnknownKeys() : void {
 		$files = $this->getTranslationFiles();
 
-		if (empty($files)) {
-			$this->markTestSkipped('No translation files found.');
+		if (count($files) === 0) {
+			self::markTestSkipped('No translation files found.');
 		}
 
 		$loader = new YamlFileLoader();
@@ -98,7 +91,7 @@ abstract class YamlTranslationsTest extends TestCase {
 		$defaultLocale = $this->getDefaultLocale();
 
 		foreach ($translations as $domain => $locales) {
-			$this->assertArrayHasKey($defaultLocale, $translations[$domain],
+			self::assertArrayHasKey($defaultLocale, $translations[$domain],
 					sprintf('Domain "%s" has no translation file for the default locale "%s".', $domain, $defaultLocale));
 
 			foreach ($locales as $locale => $keys) {
@@ -106,7 +99,7 @@ abstract class YamlTranslationsTest extends TestCase {
 					continue;
 				}
 
-				$this->assertEquals([], array_diff($keys, $translations[$domain][$defaultLocale]),
+				self::assertEquals([], array_diff($keys, $translations[$domain][$defaultLocale]),
 						sprintf('The translation file for locale "%s" (domain "%s") contains message keys not available for default locale "%s".', $locale, $domain, $defaultLocale));
 			}
 		}

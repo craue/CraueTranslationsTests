@@ -9,7 +9,7 @@ namespace Craue\TranslationsTests;
  */
 class YamlTranslationsTestOkTest extends YamlTranslationsTest {
 
-	protected function defineTranslationFiles() {
+	protected function defineTranslationFiles() : array {
 		return glob(__DIR__ . '/Resources/translations/ok/*/*.yml');
 	}
 

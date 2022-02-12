@@ -11,11 +11,11 @@ use PHPUnit\Framework\AssertionFailedError;
  */
 class YamlTranslationsTestMissingKeyInDefaultLocaleTest extends YamlTranslationsTest {
 
-	protected function defineTranslationFiles() {
+	protected function defineTranslationFiles() : array {
 		return glob(__DIR__ . '/Resources/translations/not-ok/missing-key-in-default-locale/*.yml');
 	}
 
-	public function testYamlTranslationFilesContainNoUnknownKeys() {
+	public function testYamlTranslationFilesContainNoUnknownKeys() : void {
 		$this->expectException(AssertionFailedError::class);
 		$this->expectExceptionMessage('The translation file for locale "de" (domain "messages") contains message keys not available for default locale "en".');
 

@@ -28,12 +28,12 @@ use Craue\TranslationsTests\YamlTranslationsTest;
 class TranslationsTest extends YamlTranslationsTest {
 
 	// only add this method to override the default implementation returning "en"
-	protected function defineDefaultLocale() {
+	protected function defineDefaultLocale() : string {
 		return 'de';
 	}
 
 	// specify all locations with translation files
-	protected function defineTranslationFiles() {
+	protected function defineTranslationFiles() : array {
 		return array_merge(
 			glob(__DIR__ . '/../../Resources/translations/*.yml'),
 			glob(__DIR__ . '/../../Resources/*Bundle/translations/*.yml'),

@@ -11,11 +11,11 @@ use Symfony\Component\Translation\Exception\InvalidResourceException;
  */
 class YamlTranslationsTestInvalidYamlTest extends YamlTranslationsTest {
 
-	protected function defineTranslationFiles() {
+	protected function defineTranslationFiles() : array {
 		return glob(__DIR__ . '/Resources/translations/not-ok/invalid-yaml/*.yml');
 	}
 
-	public function testYamlTranslationFilesContainNoUnknownKeys() {
+	public function testYamlTranslationFilesContainNoUnknownKeys() : void {
 		$this->expectException(InvalidResourceException::class);
 		$expectedMessage = '/^Unable to load file/';
 		// TODO just use expectExceptionMessageMatches as soon as PHPUnit >= 8.4 is required
