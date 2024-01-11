@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1] – 2024-01-11
+
+- [#1]: added support for Symfony 7
+
+[#1]: https://github.com/craue/CraueTranslationsTests/issues/1
+[1.2.1]: https://github.com/craue/CraueTranslationsTests/compare/1.2.0...1.2.1
+
 ## [1.2.0] – 2021-11-22
 
 - added support for Symfony 6
