@@ -1,6 +1,7 @@
 # Information
 
-[![Build Status](https://app.travis-ci.com/craue/CraueTranslationsTests.svg?branch=master)](https://app.travis-ci.com/craue/CraueTranslationsTests)
+[![Tests](https://github.com/craue/CraueTranslationsTests/actions/workflows/tests.yml/badge.svg?branch=master)](https://github.com/craue/CraueTranslationsTests/actions/workflows/tests.yml)
+[![Coverage Status](https://coveralls.io/repos/github/craue/CraueTranslationsTests/badge.svg?branch=master)](https://coveralls.io/github/craue/CraueTranslationsTests?branch=master)
 
 This repository contains just some common code for testing translations in your Symfony project.
 
