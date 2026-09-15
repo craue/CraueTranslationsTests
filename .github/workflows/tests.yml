@@ -60,7 +60,7 @@ jobs:
           composer-options: --prefer-dist
 
       - name: run PHPUnit
-        run: vendor/bin/phpunit -v --coverage-clover build/logs/clover.xml
+        run: vendor/bin/phpunit --coverage-clover build/logs/clover.xml
 
       - name: upload code coverage data to Coveralls
         if: github.repository == 'craue/CraueTranslationsTests'

@@ -3,7 +3,7 @@
 namespace Craue\TranslationsTests;
 
 use PHPUnit\Framework\AssertionFailedError;
-use PHPUnit\Framework\SkippedTestError;
+use PHPUnit\Framework\SkippedTest;
 
 /**
  * @author Christian Raue <christian.raue@gmail.com>
@@ -24,10 +24,12 @@ class YamlTranslationsTestFilesEmptyArrayTest extends YamlTranslationsTest {
 	}
 
 	public function testYamlTranslationFilesContainNoUnknownKeys() : void {
-		$this->expectException(SkippedTestError::class);
-		$this->expectExceptionMessage('No translation files found.');
-
-		parent::testYamlTranslationFilesContainNoUnknownKeys();
+		try {
+			parent::testYamlTranslationFilesContainNoUnknownKeys();
+			self::fail();
+		} catch (SkippedTest $e) {
+			self::assertSame('No translation files found.', $e->getMessage());
+		}
 	}
 
 }

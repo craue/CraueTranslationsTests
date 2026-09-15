@@ -16,17 +16,18 @@
 		}
 	],
 	"require": {
-		"php": "^7.3|^8",
-		"phpunit/phpunit": "^8|^9",
-		"symfony/translation": "^4.4|^5.3|^6.0|^7.0|^8.0",
-		"symfony/yaml": "^4.4|^5.3|^6.0|^7.0|^8.0"
+		"php": "^8.2",
+		"phpunit/phpunit": "^11.5.50 || ^12.5.8 || ^13.3",
+		"symfony/translation": "^5.4 || ^6.4 || ^7.4 || ^8.1",
+		"symfony/yaml": "^5.4 || ^6.4 || ^7.4 || ^8.1"
 	},
 	"require-dev": {
 		"phpstan/extension-installer": "^1.1",
-		"phpstan/phpstan": "^1.4",
-		"phpstan/phpstan-deprecation-rules": "^1.0",
-		"phpstan/phpstan-phpunit": "^1.0",
-		"phpstan/phpstan-strict-rules": "^1.1"
+		"phpstan/phpstan": "^2.2",
+		"phpstan/phpstan-deprecation-rules": "^2",
+		"phpstan/phpstan-strict-rules": "^2",
+		"phpstan/phpstan-symfony": "^2",
+		"symfony/phpunit-bridge": "^8.1"
 	},
 	"minimum-stability": "stable",
 	"autoload": {
@@ -41,7 +42,7 @@
 	},
 	"extra": {
 		"branch-alias": {
-			"dev-master": "1.2.x-dev"
+			"dev-master": "2.0.x-dev"
 		}
 	},
 	"config": {

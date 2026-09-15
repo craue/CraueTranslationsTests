@@ -3,25 +3,23 @@
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
 		backupGlobals="false"
-		cacheResult="false"
 		colors="true"
 		failOnRisky="true"
-		failOnWarning="true">
+		failOnWarning="true"
+		displayDetailsOnAllIssues="true"
+>
 	<testsuites>
 		<testsuite name="CraueTranslationsTests">
 			<directory suffix="Test.php">tests</directory>
 		</testsuite>
 	</testsuites>
-	<coverage>
+	<source>
 		<include>
-			<directory suffix=".php">.</directory>
+			<directory suffix=".php">src</directory>
 		</include>
-		<exclude>
-			<directory suffix=".php">Tests</directory>
-			<directory suffix=".php">vendor</directory>
-		</exclude>
-	</coverage>
-	<listeners>
-		<listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />
-	</listeners>
+	</source>
+	<coverage />
+	<extensions>
+		<bootstrap class="Symfony\Bridge\PhpUnit\SymfonyExtension" />
+	</extensions>
 </phpunit>

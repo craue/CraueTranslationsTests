@@ -49,7 +49,7 @@ abstract class YamlTranslationsTest extends TestCase {
 		if ($this->translationFiles === null) {
 			$translationFiles = $this->defineTranslationFiles();
 
-			self::assertContainsOnly('string', $translationFiles, true, 'You need to define the translation files to be tested as an array of file names.');
+			self::assertContainsOnlyString($translationFiles, 'You need to define the translation files to be tested as an array of file names.');
 
 			$this->translationFiles = $translationFiles;
 		}

@@ -17,13 +17,7 @@ class YamlTranslationsTestInvalidYamlTest extends YamlTranslationsTest {
 
 	public function testYamlTranslationFilesContainNoUnknownKeys() : void {
 		$this->expectException(InvalidResourceException::class);
-		$expectedMessage = '/^Unable to load file/';
-		// TODO just use expectExceptionMessageMatches as soon as PHPUnit >= 8.4 is required
-		if (\method_exists($this, 'expectExceptionMessageMatches')) {
-			$this->expectExceptionMessageMatches($expectedMessage);
-		} else {
-			$this->expectExceptionMessageRegExp($expectedMessage);
-		}
+		$this->expectExceptionMessageMatches('/^Unable to load file/');
 
 		parent::testYamlTranslationFilesContainNoUnknownKeys();
 	}
