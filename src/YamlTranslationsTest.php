@@ -12,27 +12,21 @@ use Symfony\Component\Translation\Loader\YamlFileLoader;
  */
 abstract class YamlTranslationsTest extends TestCase {
 
-	/**
-	 * @var string|null
-	 */
-	private $defaultLocale = null;
+	private ?string $defaultLocale = null;
 
 	/**
 	 * @var string[]|null
 	 */
-	private $translationFiles = null;
+	private ?array $translationFiles = null;
 
-	/**
-	 * @return string
-	 */
-	protected function defineDefaultLocale() {
+	protected function defineDefaultLocale() : string {
 		return 'en';
 	}
 
 	/**
 	 * @return string[]
 	 */
-	abstract protected function defineTranslationFiles();
+	abstract protected function defineTranslationFiles() : array;
 
 	protected final function getDefaultLocale() : string {
 		if ($this->defaultLocale === null) {
