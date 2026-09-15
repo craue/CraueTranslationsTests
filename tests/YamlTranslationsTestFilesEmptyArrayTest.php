@@ -7,7 +7,7 @@ use PHPUnit\Framework\SkippedTest;
 
 /**
  * @author Christian Raue <christian.raue@gmail.com>
- * @copyright 2011-2022 Christian Raue
+ * @copyright 2011-2026 Christian Raue
  * @license http://opensource.org/licenses/mit-license.php MIT License
  */
 class YamlTranslationsTestFilesEmptyArrayTest extends YamlTranslationsTest {
