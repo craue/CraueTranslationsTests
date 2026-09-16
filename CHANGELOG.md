@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0] – 2026-09-16
+
+- [#2]: added support for Symfony 8
+- added support for PHPUnit 11, 12, 13
+- dropped support for PHP < 8.2
+- dropped support for PHPUnit < 11
+- dropped support for Symfony 4.4, 5.3, 6.0-6.3, 7.0-7.3, 8.0
+
+[#2]: https://github.com/craue/CraueTranslationsTests/issues/2
+[2.0.0]: https://github.com/craue/CraueTranslationsTests/compare/1.2.1...2.0.0
+
 ## [1.2.1] – 2024-01-11
 
 - [#1]: added support for Symfony 7
